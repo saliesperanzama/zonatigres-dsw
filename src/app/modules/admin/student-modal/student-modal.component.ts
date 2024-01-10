@@ -65,7 +65,14 @@ export class StudentModalComponent {
           noControl: this.noControl,
           email: this.email
         }
-        
+        //Verificar que los campos esten completos
+        if(this.noControl == null || this.email == ''){
+          Swal.fire({
+            title: 'Rellene todos los campos',
+            icon: 'error',
+          });
+          return;
+        }
         this.apiProv.createStudent(data)
         .then((res) => {
           if (res) {
@@ -85,7 +92,14 @@ export class StudentModalComponent {
       noControl: this.noControl,
       email: this.email
     }
-    
+    //Verificar que los campos esten completos
+    if(this.noControl == null || this.email == ''){
+      Swal.fire({
+        title: 'Rellene todos los campos',
+        icon: 'error',
+      });
+      return;
+    }
     this.apiProv.updateStudent(this.studentId, data).then((res) => {
       Swal.fire({
         title: 'Estudiante actualizado',

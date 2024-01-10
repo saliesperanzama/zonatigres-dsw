@@ -38,6 +38,23 @@ export class PsModalComponent {
   }
 
   public create(){
+    //Verificar que todos los datos esten completos
+    if(this.nombre == '' || this.precio == 0 || this.descripcion == '' || this.telefono == 0 || this.img == '' || this.vendedor == '' || this.tipo == ''){
+      Swal.fire({
+        title: 'Datos incompletos',
+        icon: 'error',
+      });
+      return;
+    }
+
+    if(this.nombre==null || this.precio==null || this.descripcion==null || this.telefono==null || this.img==null || this.vendedor==null || this.email==null){
+      Swal.fire({
+        title: 'Datos incompletos',
+        icon: 'error',
+      });
+      return;
+    }
+
     //Verificar si el tipo elegido es PRODUCTO o SERVICIO
     if(this.tipo == 'PROD'){
       const data = {
@@ -83,6 +100,22 @@ export class PsModalComponent {
   }
 
   public update(){
+    //Verificar que todos los datos esten completos
+    if(this.nombre == '' || this.precio == 0 || this.descripcion == '' || this.telefono == 0 || this.img == '' || this.vendedor == '' || this.tipo == ''){
+      Swal.fire({
+        title: 'Datos incompletos',
+        icon: 'error',
+      });
+      return;
+    }
+
+    if(this.nombre==null || this.precio==null || this.descripcion==null || this.telefono==null || this.img==null || this.vendedor==null || this.tipo==null){
+      Swal.fire({
+        title: 'Datos incompletos',
+        icon: 'error',
+      });
+      return;
+    }
     //Verificar si el tipo elegido es PRODUCTO o SERVICIO
     if(this.tipo == 'PROD'){
       const data = {
