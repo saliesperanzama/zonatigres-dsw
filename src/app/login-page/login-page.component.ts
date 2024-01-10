@@ -14,7 +14,6 @@ export class LoginPageComponent {
   public role: string = '';
   //Obtener email del localstorage
   public userEmail = localStorage.getItem('userEmail');
-          
 
   constructor(private apiProv: ApiProvider) {
     //Verificar si hay usuario autenticado

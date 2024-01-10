@@ -89,7 +89,10 @@ export class StudentsAdminComponent {
         //Verificar que el estudiante no se encuentre registrado como usuario
         const isEmailInUsers = this.users.some((user: { email: string }) => user.email == student.email);
         if(isEmailInUsers){
-          alert('No se puede eliminar el estudiante porque tiene un usuario asociado');
+          Swal.fire({
+            title: "No se puede eliminar el estudiante porque tiene un usuario asociado",
+            icon: "error"
+          });
         }else{
           this.apiProv.deleteStudent(student._id)
           .then(
